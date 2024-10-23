@@ -1,0 +1,403 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures body takes full height of the viewport */
+    overflow: hidden; /* Prevent body scrolling */
+}
+
+header {
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    max-width: 150px;
+    height: auto;
+}
+
+.container {
+    width: 100%;
+    max-width: 450px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align items to the top */
+    align-items: center;
+    flex-grow: 1; /* Ensure container takes up available vertical space */
+    overflow-y: auto; /* Enable vertical scrolling */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+
+/* Flex container adjustments to ensure footer stays at the bottom */
+form {
+    display: flex; /* Use flexbox for form layout */
+    flex-direction: column; /* Stack children vertically */
+    flex-grow: 1; /* Allow form to take up remaining space */
+}
+
+.home, .songs, .request, .confirm, .finish {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align items to the top */
+    align-items: center;
+    text-align: center;
+    min-height: min-content; /* Allow content to determine height */
+    margin-top: 10px; /* Add margin top to space below header */
+}
+
+.home .content, .songs .content, .request .content, .confirm .content {
+    width: 100%;
+    padding: 0 20px;
+}
+
+.finish {
+    flex: 1; /* Take available space */
+    display: flex; /* Use flexbox to center content */
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center; /* Center items vertically */
+    align-items: center; /* Center items horizontally */
+    text-align: center; /* Center text */
+    padding: 20px; /* Add some padding */
+}
+
+/* H1 Font Size Adjustments */
+h1 {
+    font-size: 24px; /* Base size for mobile */
+    margin: 0;
+    padding: 10px 0;
+    max-width: 100%;
+    white-space: normal; /* Allow wrapping */
+    overflow: visible;
+}
+
+/* Media Queries for Responsiveness */
+@media (min-width: 480px) {
+    h1 {
+        font-size: 28px;
+    }
+}
+
+@media (min-width: 768px) {
+    h1 {
+        font-size: 32px;
+        line-height: 1.2;
+        margin-bottom: 15px;
+    }
+
+    .home label, .songs label {
+        font-size: 20px;
+    }
+
+    .home input, .songs input {
+        font-size: 18px;
+        padding: 12px;
+    }
+
+    button.black-btn {
+        font-size: 18px;
+        padding: 15px 25px;
+    }
+
+    .finish p, .finish span {
+        font-size: 18px;
+    }
+}
+
+@media (min-width: 1024px) {
+    h1 {
+        font-size: 36px;
+    }
+
+    .home label, .songs label {
+        font-size: 22px;
+    }
+
+    .home input, .songs input {
+        font-size: 20px;
+    }
+
+    button.black-btn {
+        font-size: 20px;
+    }
+}
+
+.home label, .songs label {
+    display: block;
+    font-size: 18px; /* Base size for mobile */
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.home input, .songs input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px; /* Base size for mobile */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    outline: none;
+}
+
+.home input:focus, .songs input:focus {
+    border-color: #333;
+}
+
+/* Footer */
+footer {
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+    display: flex; /* Use flexbox for button alignment */
+    flex-direction: column; /* Stack buttons vertically */
+    align-items: center; /* Center buttons horizontally */
+    position: sticky;
+    bottom: 0;
+    z-index: 10;
+}
+
+button.black-btn {
+    display: inline-block;
+    background-color: #000;
+    color: #fff;
+    padding: 12px 20px;
+    font-size: 16px; /* Base size for mobile */
+    text-transform: uppercase;
+    border: none;
+    border-radius: 5px;
+    width: 90%; /* Full width for buttons with some margin */
+    max-width: 300px; /* Max width for buttons */
+    margin: 10px 0; /* Space between buttons */
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+button.black-btn:hover {
+    background-color: #333;
+}
+
+/* Media Query for iPhone 14 Pro and smaller devices */
+@media (max-width: 430px) {
+    .container {
+        padding: 10px;
+    }
+
+    .home label, .songs label, .home input, .songs input, .finish p {
+        font-size: 16px;
+    }
+
+    .home input, .songs input {
+        padding: 10px;
+    }
+
+    button.black-btn {
+        font-size: 16px;
+        padding: 12px 20px;
+    }
+}
+
+/* Add a media query for larger screens */
+@media (min-width: 768px) {
+    body {
+        overflow: auto; /* Allow scrolling on larger screens if needed */
+    }
+
+    .container {
+        overflow-y: visible; /* Disable container scrolling on larger screens */
+    }
+}
+
+/* Error Message Styles */
+.error-message {
+    background-color: #ffebee;
+    color: #d32f2f;
+    border: 1px solid #ef9a9a;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    text-align: center; /* Changed from left to center */
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Media query for larger screens */
+@media (min-width: 768px) {
+    .error-message {
+        font-size: 16px;
+        padding: 12px;
+    }
+}
+
+/* Styles for song search input, suggestions list, and selected songs */
+.songs .content,
+#song-search,
+#suggestions,
+#selected-songs,
+#loading {
+    width: 100%;
+    max-width: 410px;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+}
+
+.songs .content {
+    padding: 0;
+}
+
+#song-search {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    outline: none;
+}
+
+#suggestions,
+#selected-songs {
+    list-style-type: none;
+    padding: 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+    overflow: hidden; /* This will ensure the border-radius is applied to child elements */
+}
+
+#suggestions li,
+#selected-songs li {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+}
+
+#suggestions li {
+    cursor: pointer;
+}
+
+#suggestions li:last-child,
+#selected-songs li:last-child {
+    border-bottom: none;
+}
+
+#suggestions li:hover {
+    background-color: #f5f5f5;
+}
+
+#selected-songs li {
+    cursor: default;
+}
+
+.highlight {
+    font-weight: bold;
+    color: #007bff;
+}
+
+#loading {
+    text-align: center;
+    padding: 10px;
+}
+
+/* Media Queries */
+@media (max-width: 480px) {
+    .songs .content,
+    #song-search,
+    #suggestions,
+    #selected-songs,
+    #loading {
+        width: calc(100% - 20px);
+        max-width: none;
+    }
+
+    .song-name {
+        font-size: 14px;
+    }
+
+    .song-artist {
+        font-size: 12px;
+    }
+
+    .song-album,
+    .song-release {
+        font-size: 11px;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    .songs .content,
+    #song-search,
+    #suggestions,
+    #selected-songs,
+    #loading {
+        width: calc(100% - 40px);
+        max-width: none;
+    }
+}
+
+@media (min-width: 769px) {
+    .songs .content,
+    #song-search,
+    #suggestions,
+    #selected-songs,
+    #loading {
+        width: 100%;
+        max-width: 410px;
+    }
+}
+
+.d-flex {
+    display: flex;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.img-thumbnail {
+    margin-right: 15px;
+}
+
+.song-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.song-name {
+    font-size: 16px;
+    margin-bottom: 2px;
+}
+
+.song-artist {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 2px;
+}
+
+.song-album,
+.song-release {
+    font-size: 12px;
+    color: #777;
+    margin-bottom: 2px;
+}

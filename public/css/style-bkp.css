@@ -1,0 +1,174 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background-color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensures body takes full height of the viewport */
+}
+
+header {
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.logo {
+  max-width: 150px;
+  height: auto;
+}
+
+.container {
+  width: 100%;
+  max-width: 450px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Align items to the top */
+  align-items: center;
+  flex-grow: 1; /* Ensure container takes up available vertical space */
+}
+
+.home, .songs, .request, .confirm, .finish {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Align items to the top */
+  align-items: center;
+  text-align: center;
+  min-height: 60vh; /* Maintain vertical height */
+  margin-top: 10px; /* Add margin top to space below header */
+}
+
+.home .content, .songs .content, .request .content, .confirm .content {
+  width: 100%;
+  padding: 0 20px;
+}
+
+.finish {
+  flex: 1; /* Take available space */
+  display: flex; /* Use flexbox to center content */
+  flex-direction: column; /* Stack items vertically */
+  justify-content: center; /* Center items vertically */
+  align-items: center; /* Center items horizontally */
+  text-align: center; /* Center text */
+  padding: 20px; /* Add some padding */
+}
+
+/* H1 Font Size Adjustments */
+h1 {
+  font-size: 5vw; /* Responsive font size for mobile */
+  margin: 0; /* Remove default margin to prevent overflow */
+  padding: 10px 0; /* Add padding for spacing */
+  max-width: 100%; /* Ensure h1 doesn't exceed container width */
+  white-space: nowrap; /* Keep text on one line */
+  overflow: visible; /* Allow overflow */
+}
+
+/* Media Queries for Responsiveness */
+@media (min-width: 480px) {
+  h1 {
+      font-size: 4vw; /* Slightly larger for small tablets */
+      white-space: nowrap; /* Prevent line breaks */
+  }
+}
+
+@media (min-width: 768px) {
+  h1 {
+      font-size: 1.8rem; /* Adjust font size for medium screens */
+      line-height: 1.2; /* Control line height for better spacing */
+      margin-bottom: 10px; /* Reduced bottom margin */
+  }
+
+  .finish p {
+      font-size: 1rem; /* Adjust paragraph size for desktop */
+  }
+
+  .finish span {
+      font-size: 1rem; /* Adjust span size for desktop */
+  }
+}
+
+@media (min-width: 1024px) {
+  h1 {
+      font-size: 2.5rem; /* Adjust font size for larger screens */
+  }
+}
+
+.home label, .songs label {
+  display: block;
+  font-size: 4.5vw; /* Responsive label size */
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.home input, .songs input {
+  width: 100%;
+  padding: 3vw;
+  font-size: 4.5vw;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  outline: none;
+}
+
+.home input:focus, .songs input:focus {
+  border-color: #333;
+}
+
+/* Footer */
+footer {
+  width: 100%;
+  text-align: center;
+  padding: 20px 0;
+  background-color: #fff;
+  border-top: 1px solid #ddd;
+  display: flex; /* Use flexbox for button alignment */
+  flex-direction: column; /* Stack buttons vertically */
+  align-items: center; /* Center buttons horizontally */
+  margin-top: auto; /* Push footer to the bottom of the viewport */
+}
+
+button.black-btn {
+  display: inline-block;
+  background-color: #000;
+  color: #fff;
+  padding: 12px 20px;
+  font-size: 4.5vw; /* Responsive button font size */
+  text-transform: uppercase;
+  border: none;
+  border-radius: 5px;
+  width: 90%; /* Full width for buttons with some margin */
+  max-width: 300px; /* Max width for buttons */
+  margin: 10px 0; /* Space between buttons */
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+button.black-btn:hover {
+  background-color: #333;
+}
+
+/* Media Query for iPhone 14 Pro and smaller devices */
+@media (min-width: 430px) {
+  .home label, .songs label, .home input, .songs input, .finish p {
+      font-size: 1.1rem;
+  }
+
+  .home input, .songs input {
+      padding: 15px;
+  }
+
+  button.black-btn {
+      font-size: 1.1rem;
+      padding: 15px 25px;
+  }
+}
